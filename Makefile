@@ -1,7 +1,11 @@
 permutations: main.py
 
-install: permutations
-	cp main.py ~/.local/bin/permutations
+PREFIX=/usr/local
+
+install:
+	mkdir -p $(PREFIX)/bin
+	cp -f main.py $(PREFIX)/bin/permutations
+	chmod 755 $(PREFIX)/bin/permutations
 
 uninstall:
-	rm -f ~/.local/bin/permutations
+	rm -f $(PREFIX)/bin/permutations
